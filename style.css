@@ -19,7 +19,7 @@ body {
 
 /* Header Styling */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -28,7 +28,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
+z-index: 2;
 }
 
 .topic {
@@ -51,7 +51,10 @@ body {
   padding: 0px 20px;
   color: var(--text-color);
 }
-
+/* Add this style for active navbar item */
+.navtab a.active {
+  color: var(--main-text-color);
+}
 /* Style for smaller devices */
 @media (max-width: 768px) {
   .navtab {
@@ -164,13 +167,66 @@ span {
   background: var(--second-bg-color);
   color: var(--main-text-color);
 }
+/* Add animation and transitions to the About section */
+.about {
+  text-align: center;
+  padding: 6rem 0;
+  background-color: var(--second-bg-color);
+  color: var(--text-color);
+  position: relative;
+  z-index: 1;
+}
 
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.about-description {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  animation: fadeInUp 1.5s ease;
+}
+
+.about-image {
+  margin-top: 3rem;
+  animation: fadeInUp 2s ease;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Define the fadeInUp animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 /* Skills section styling */
 .skills-boxes {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  /* Adjust the gap between skill boxes */
 }
 
 .skills-box {
@@ -179,8 +235,8 @@ span {
   border-radius: 1rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  overflow: auto; /* Enable scrolling within the box */
-  max-height: 350px; /* Set a maximum height for each box */
+  overflow: auto; 
+  max-height: 360px; 
 }
 
 .skills-box:hover {
@@ -196,10 +252,11 @@ span {
   color: var(--text-color);
   margin-top: 1rem;
 }
+
 /* Contact section styling */
 .contact {
   background-color: var(--main-bg-color);
-  padding: 4rem 0;
+  padding: 2rem 0;
   text-align: center;
 }
 
@@ -211,16 +268,28 @@ span {
   border: 1.5px solid black;
   outline: none;
   margin-bottom: 1rem;
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: var(--text-color);
   background: var(--second-bg-color);
 }
-
+.contact form .input-box input,
+.contact form textarea {
+  flex: 1;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--text-color);
+  background: var(--second-bg-color);
+  border-radius: 0.8rem;
+  border: 1.5px solid black;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
 .contact form {
-  max-width: 60rem;
-  margin: 0 auto;
+  max-width: 40rem; 
+  margin: 1rem auto;
   text-align: center;
   margin-bottom: 3rem;
+  max-height: 70vh;
 }
 
 .contact form .input-box {
@@ -229,19 +298,7 @@ span {
   gap: 1rem;
   justify-content: space-between;
 }
-.contact form .input-box input,
-.contact form textarea {
-  flex: 1;
-  padding: 1.5rem;
-  font-size: 1.6rem;
-  color: var(--text-color);
-  background: var(--second-bg-color);
-  border-radius: 0.8rem;
-  border: 1.5px solid black;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
+  
 .contact form .input-box input:focus,
 .contact form textarea:focus {
   border-color: var(--main-text-color);
@@ -253,17 +310,17 @@ span {
 
 .contact form textarea {
   resize: vertical;
-  min-height: 8rem;
+  min-height: 5rem; 
 }
+
 /* Contact section button styling */
 .contact form .btn {
   display: inline-block;
-  padding: 1.5rem 3rem; /* Increase padding for a bigger button */
-  width: auto; /* Set width to auto to avoid expanding the form */
+  padding: 1rem 1rem; 
   background: var(--main-text-color);
   border-radius: 4rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
-  font-size: 1.8rem; /* Increase font size for better visibility */
+  font-size: 1rem; 
   color: var(--second-bg-color);
   letter-spacing: 0.1rem;
   font-weight: 600;
@@ -275,9 +332,8 @@ span {
   transform: scale(1.05);
   background: var(--second-bg-color);
   color: var(--main-text-color);
-  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
 }
-
 /* Footer styling */
 .footer {
   background-color: var(--second-bg-color);
