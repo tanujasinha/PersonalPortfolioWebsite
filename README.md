@@ -33,7 +33,7 @@ This is a personal portfolio website showcasing skills, projects, and profession
 ## Setup and Installation
 1. Clone the repository
 ```bash
-git clone https://github.com/tanujasinha/portfolio.git
+https://github.com/tanujasinha/PortfolioWebsite.git
 ```
 
 2. Open `index.html` in your web browser
